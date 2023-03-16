@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:14.3
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    ports:
+      - ${FINANCE_DB_PORT}:5432
+    environment:
+      POSTGRES_USER: ${FINANCE_DB_USER}
+      POSTGRES_PASSWORD: ${FINANCE_DB_PASSWORD}
+      POSTGRES_DB: ${FINANCE_DB_NAME}
+
+volumes:
+  database-data:
